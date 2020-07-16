@@ -47,7 +47,28 @@ class covidReader:
                 previous = current
             except:
                 continue
-        print(data)
+        #print(data)
+        return data
+
+    def getSevenDayMAByState(self, state):
+        data = {'date':[], 'deaths':[]}
+        dates = [0,0,0,0,0,0,0]
+        curdate = 0
+        previous = 0
+        for val in self.data:
+            try:
+                current = int(self.data[val][state])
+                dates[curdate] = current - previous
+                data['deaths'].append(sum(dates)/7)
+                data['date'].append(val)
+                previous = current
+            except:
+                continue
+            curdate += 1
+            if curdate == len(dates):
+                print(dates)
+                curdate = 0
+        #print(data)
         return data
 
     def getDailyNewDeathsAll(self):

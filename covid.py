@@ -9,10 +9,11 @@ reader.readFileContents()
 
 #state = reader.getStateSet('Florida')
 #state = reader.getAllDeaths()
-state = reader.getDailyNewDeathsByState('Arkansas')
+#state = reader.getDailyNewDeathsByState('Arkansas')
 #state = reader.getDailyNewDeathsAll()
 #state = reader.getDailyDeathsExcludingEarly()
 #state = reader.getDailyDeathsSpecfic()
+state = reader.getSevenDayMAByState('Texas')
 
 
 df = pandas.DataFrame(state,columns=['date', 'deaths'])
